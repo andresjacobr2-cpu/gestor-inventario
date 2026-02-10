@@ -394,8 +394,11 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
+    <!-- Firebase v9 (simple, sin modules) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
     <script>
-        // TU CONFIGURACIÓN
         const firebaseConfig = {
             apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
             authDomain: "rainbow-33d6a.firebaseapp.com",
@@ -405,12 +408,10 @@
             appId: "1:218179570300:web:702ea061bd77b3507757f9"
         };
         
-        // Inicializar Firebase
         firebase.initializeApp(firebaseConfig);
         window.firebaseDb = firebase.firestore();
         
-        console.log('✅ Firebase v9 cargado correctamente');
-        console.log('🔥 Proyecto:', firebaseConfig.projectId);
+        console.log('✅ Firebase listo');
     </script>
 
     <!-- TUS SCRIPTS (sin duplicados) -->
