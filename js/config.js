@@ -1,4 +1,4 @@
-/**
+/*
  * CONFIGURACIÓN GLOBAL DEL PROYECTO
  * Centraliza todas las constantes y configuraciones
  */
