@@ -16,4 +16,29 @@ class FirebaseProductService {
     async deleteProduct(docId) {
         return await this.service.delete(this.collection, docId);
     }
+    // 👇 AGREGAR AL FINAL de FirebaseProductService.js
+    onProductsChange(callback) {
+    const unsubscribe = this.service.db.collection(this.collection)
+        .onSnapshot(snapshot => {
+            const products = [];
+            snapshot.forEach(doc => {
+                products.push({ 
+                    docId: doc.id, 
+                    ...doc.data() 
+                });
+            });
+            callback(products);
+        });
+    
+    console.log('👂 Listener productos activo');
+    return unsubscribe;
+}
+
+offProductsChange() {
+    // Para limpiar después
+    console.log('🛑 Listener productos detenido');
+}
+
+
+
 }
