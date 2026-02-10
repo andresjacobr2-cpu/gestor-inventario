@@ -238,8 +238,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
 
     <!-- Tu configuración Firebase (REEMPLAZA CON LA TUYA) -->
-    <script>
-        const firebaseConfig = {
+<!-- Firebase v12 (versión moderna) -->
+    <script type="module">
+    // Tu configuración (¡YA LA TIENES PERFECTA!)
+    window.FIREBASE_CONFIG = {
         apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
         authDomain: "rainbow-33d6a.firebaseapp.com",
         projectId: "rainbow-33d6a",
@@ -247,8 +249,22 @@
         messagingSenderId: "218179570300",
         appId: "1:218179570300:web:702ea061bd77b3507757f9",
         measurementId: "G-8YDLDQCDG4"
-        };
+    };
     </script>
+
+    <!-- Firebase SDKs (v12 moderna) -->
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    
+    // Inicializar app
+    window.firebaseApp = initializeApp(FIREBASE_CONFIG);
+    window.firebaseDb = getFirestore(window.firebaseApp);
+    
+    console.log('✅ Firebase v12 inicializado');
+    console.log('🔥 Proyecto:', FIREBASE_CONFIG.projectId);
+    </script>
+
 
     <!-- Scripts de la app -->
     <script src="js/config.js"></script>
