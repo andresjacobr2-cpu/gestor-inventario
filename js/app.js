@@ -1,5 +1,5 @@
 /*
- * APLICACIÓN PRINCIPAL
+ *  APLICACIÓN PRINCIPAL
  * Integración con Firebase
  */
 
