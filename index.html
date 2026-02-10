@@ -241,7 +241,7 @@
 <!-- Firebase v12 (versión moderna) -->
     <script type="module">
     // Tu configuración (¡YA LA TIENES PERFECTA!)
-    window.FIREBASE_CONFIG = {
+        window.FIREBASE_CONFIG = {
         apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
         authDomain: "rainbow-33d6a.firebaseapp.com",
         projectId: "rainbow-33d6a",
@@ -254,16 +254,32 @@
 
     <!-- Firebase SDKs (v12 moderna) -->
     <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-    
-    // Inicializar app
-    window.firebaseApp = initializeApp(FIREBASE_CONFIG);
-    window.firebaseDb = getFirestore(window.firebaseApp);
-    
-    console.log('✅ Firebase v12 inicializado');
-    console.log('🔥 Proyecto:', FIREBASE_CONFIG.projectId);
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+        
+        // Inicializar app
+        window.firebaseApp = initializeApp(FIREBASE_CONFIG);
+        window.firebaseDb = getFirestore(window.firebaseApp);
+        
+        console.log('✅ Firebase v12 inicializado');
+        console.log('🔥 Proyecto:', FIREBASE_CONFIG.projectId);
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (window.firebaseDb) {
+                console.log('🟢 Firebase CONNECTADO correctamente!');
+                
+                // Probar conexión
+                const testService = new FirebaseService();
+                const test = await testService.getAll('productos');
+                console.log('🔍 Test Firestore:', test);
+            } else {
+                console.error('🔴 Firebase NO conectado');
+            }
+        });
+    </script>
+
 
 
     <!-- Scripts de la app -->
