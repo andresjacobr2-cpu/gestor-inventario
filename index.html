@@ -241,7 +241,7 @@
 <!-- Firebase v12 (versión moderna) -->
     <script type="module">
     // Tu configuración (¡YA LA TIENES PERFECTA!)
-    window.FIREBASE_CONFIG = {
+        window.FIREBASE_CONFIG = {
         apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
         authDomain: "rainbow-33d6a.firebaseapp.com",
         projectId: "rainbow-33d6a",
@@ -253,37 +253,27 @@
     </script>
 
     <!-- Firebase SDKs (v12 moderna) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, updateDoc, serverTimestamp, doc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-        
-        // TU CONFIGURACIÓN
-        window.FIREBASE_CONFIG = {
+    <!-- Firebase v9 (no-module, más compatible) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
             apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
             authDomain: "rainbow-33d6a.firebaseapp.com",
             projectId: "rainbow-33d6a",
             storageBucket: "rainbow-33d6a.firebasestorage.app",
             messagingSenderId: "218179570300",
-            appId: "1:218179570300:web:702ea061bd77b3507757f9",
-            measurementId: "G-8YDLDQCDG4"
+            appId: "1:218179570300:web:702ea061bd77b3507757f9"
         };
         
         // Inicializar
-        window.firebaseApp = initializeApp(FIREBASE_CONFIG);
-        window.firebaseDb = getFirestore(window.firebaseApp);
+        firebase.initializeApp(firebaseConfig);
+        window.firebaseDb = firebase.firestore();
         
-        // Exportar funciones para usar en otros scripts
-        window.addDoc = addDoc;
-        window.getDocs = getDocs;
-        window.deleteDoc = deleteDoc;
-        window.updateDoc = updateDoc;
-        window.serverTimestamp = serverTimestamp;
-        window.doc = doc;
-        window.collection = collection;
-        
-        console.log('✅ Firebase v12 inicializado correctamente');
-        console.log('🔥 Proyecto:', FIREBASE_CONFIG.projectId);
+        console.log('✅ Firebase v9 cargado');
     </script>
+
 
     <script src="js/config.js"></script>
     <script src="js/models/Product.js"></script>
