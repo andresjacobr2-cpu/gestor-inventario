@@ -1,31 +1,46 @@
+/**
+ * APP PRINCIPAL - VERSIÓN FINAL
+ */
+
+let appController;
+let firebaseProductService;
+let firebaseSalesService;
+
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🚀 Iniciando aplicación...');
 
-    // Firebase ya está inicializado arriba
-    const firebaseService = new FirebaseService();  // 👈 CAMBIO AQUÍ
+    // Crear FirebaseService (no necesita init)
+    const firebaseService = new FirebaseService();
     
-    // Crear servicios
+    // Crear ProductService
     firebaseProductService = new FirebaseProductService();
-    firebaseSalesService = new FirebaseSalesService(firebaseProductService);
+    console.log('✅ ProductService creado');
     
-    firebaseProductService.init();
-    firebaseSalesService.init();
-
-    // Listeners (igual)
+    // Crear SalesService (necesita ProductService)
+    firebaseSalesService = new FirebaseSalesService(firebaseProductService);
+    console.log('✅ SalesService creado');
+    
+    // Listeners en tiempo real
     firebaseProductService.onProductsChange(products => {
         console.log('📦 Productos actualizados:', products.length);
-        if (appController) appController.refreshProductsUI(products);
+        if (appController) {
+            appController.refreshProductsUI(products);
+        }
     });
-
+    
     firebaseSalesService.onSalesChange(sales => {
         console.log('💰 Ventas actualizadas:', sales.length);
-        if (appController) appController.refreshSalesUI(sales);
+        if (appController) {
+            appController.refreshSalesUI(sales);
+        }
     });
-
-    // Controlador
+    
+    // Crear controlador
     appController = new AppController(firebaseProductService, firebaseSalesService);
-    window.appController = appController;
+    window.appController = appController;  // Para onclick inline
+    
+    // Inicializar app
     await appController.init();
-
-    console.log('✅ ¡TODO LISTO!');
+    
+    console.log('🎉 ¡APPLICACIÓN COMPLETA LISTA!');
 });
