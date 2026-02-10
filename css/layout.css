@@ -1,108 +1,51 @@
 body {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    min-height: 100vh;
-    padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  min-height: 100vh;
+  padding: 2rem;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: var(--color-white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--color-white);
-    padding: var(--spacing-2xl);
-    text-align: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  padding: var(--spacing-2xl);
+  text-align: center;
 }
 
-.header__content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.header__title {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-sm);
-}
-
-.header__subtitle {
-    font-size: var(--font-size-lg);
-    opacity: 0.9;
-}
-
-/* Tabs Navigation */
 .tabs {
-    display: flex;
-    border-bottom: 2px solid var(--color-border);
-    background: var(--color-light);
-    flex-wrap: wrap;
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-light);
 }
 
 .tabs__button {
-    flex: 1;
-    min-width: 150px;
-    padding: var(--spacing-lg);
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-gray-dark);
-    transition: all var(--transition-normal);
-    border-bottom: 3px solid transparent;
-    position: relative;
+  flex: 1;
+  padding: var(--spacing-lg);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
 }
 
-.tabs__button:hover {
-    background: var(--color-white);
+.tabs__button:hover, .tabs__button--active {
+  background: white;
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-.tabs__button--active {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
-    background: var(--color-white);
-}
-
-/* Main Content */
 .main-content {
-    flex: 1;
-    overflow-y: auto;
-}
-
-.content {
-    padding: var(--spacing-2xl);
-    display: none;
-}
-
-.content--active {
-    display: block;
-}
-
-.content__title {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--spacing-xl);
-    color: var(--color-text);
-}
-
-.section__title {
-    font-size: var(--font-size-xl);
-    margin-top: var(--spacing-2xl);
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-text);
-    font-weight: var(--font-weight-bold);
-}
-
-/* Wrapper para tablas responsivas */
-.table-wrapper {
-    overflow-x: auto;
-    margin-bottom: var(--spacing-2xl);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+  flex: 1;
+  overflow-y: auto;
 }
