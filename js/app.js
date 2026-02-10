@@ -1,4 +1,4 @@
-/**
+/*
  * APLICACIÓN PRINCIPAL
  * Integración con Firebase
  */
