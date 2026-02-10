@@ -62,3 +62,13 @@ window.addEventListener('beforeunload', () => {
         firebaseSalesService.offSalesChange();
     }
 });
+// Test de conexión
+setTimeout(async () => {
+    try {
+        const testService = new FirebaseService();
+        const test = await testService.getAll('productos');
+        console.log('🧪 TEST FIRESTORE:', test);
+    } catch (e) {
+        console.error('🧪 ERROR TEST:', e);
+    }
+}, 2000);

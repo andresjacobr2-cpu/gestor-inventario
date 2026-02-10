@@ -254,42 +254,45 @@
 
     <!-- Firebase SDKs (v12 moderna) -->
     <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-    
-    // Inicializar app
-    window.firebaseApp = initializeApp(FIREBASE_CONFIG);
-    window.firebaseDb = getFirestore(window.firebaseApp);
-    
-    console.log('✅ Firebase v12 inicializado');
-    console.log('🔥 Proyecto:', FIREBASE_CONFIG.projectId);
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, updateDoc, serverTimestamp, doc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+        
+        // TU CONFIGURACIÓN
+        window.FIREBASE_CONFIG = {
+            apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
+            authDomain: "rainbow-33d6a.firebaseapp.com",
+            projectId: "rainbow-33d6a",
+            storageBucket: "rainbow-33d6a.firebasestorage.app",
+            messagingSenderId: "218179570300",
+            appId: "1:218179570300:web:702ea061bd77b3507757f9",
+            measurementId: "G-8YDLDQCDG4"
+        };
+        
+        // Inicializar
+        window.firebaseApp = initializeApp(FIREBASE_CONFIG);
+        window.firebaseDb = getFirestore(window.firebaseApp);
+        
+        // Exportar funciones para usar en otros scripts
+        window.addDoc = addDoc;
+        window.getDocs = getDocs;
+        window.deleteDoc = deleteDoc;
+        window.updateDoc = updateDoc;
+        window.serverTimestamp = serverTimestamp;
+        window.doc = doc;
+        window.collection = collection;
+        
+        console.log('✅ Firebase v12 inicializado correctamente');
+        console.log('🔥 Proyecto:', FIREBASE_CONFIG.projectId);
     </script>
 
-
-    <!-- Scripts de la app -->
     <script src="js/config.js"></script>
+    <script src="js/models/Product.js"></script>
+    <script src="js/models/Sale.js"></script>
+    <script src="js/services/StorageService.js"></script>  
     <script src="js/services/FirebaseService.js"></script>
     <script src="js/services/FirebaseProductService.js"></script>
     <script src="js/services/FirebaseSalesService.js"></script>
-    <script src="js/models/Product.js"></script>
-    <script src="js/models/Sale.js"></script>
     <script src="js/controllers/AppController.js"></script>
-    <script src="js/app.js"></script>
-
-
-    <!-- Scripts profesionales modulares -->
-    <script src="js/config.js"></script>
-    <script src="js/models/Product.js"></script>
-    <script src="js/models/Sale.js"></script>
-    <script src="js/services/StorageService.js"></script>
-    <script src="js/services/ProductService.js"></script>
-    <script src="js/services/SalesService.js"></script>
-    <script src="js/views/ProductView.js"></script>
-    <script src="js/views/SalesView.js"></script>
-    <script src="js/views/AnalysisView.js"></script>
-    <script src="js/controllers/AppController.js"></script>
-    <script src="js/utils/helpers.js"></script>
-    <script src="js/utils/validators.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
