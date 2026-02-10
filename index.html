@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sistema de Gestión de Inventario y Ventas">
-    <title>Gestor de Inventario y Ventas</title>
+    <title>Gestor de Inventario - Restaurante</title>
     
-    <!-- CSS Profesional Modular -->
+    <!-- CSS SOLO (SIN Firebase aquí) -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -14,12 +13,12 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <!-- Tu estructura HTML original aquí -->
     <div class="container">
-        <!-- Header -->
         <header class="header">
             <div class="header__content">
-                <h1 class="header__title">📊 Gestor de Inventario y Ventas</h1>
-                <p class="header__subtitle">Sistema integrado para tu emprendimiento</p>
+                <h1 class="header__title">Gestor de Inventario</h1>
+                <p class="header__subtitle">Controla productos, ventas y análisis en tiempo real</p>
             </div>
         </header>
 
@@ -232,38 +231,15 @@
             </section>
         </main>
     </div>
-    <!-- FIREBASE (al final, SIN type="module") -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-    <script>
-        // TU CONFIGURACIÓN
-        const firebaseConfig = {
-            apiKey: "AIzaSyC-z5p98amH-2pnpNjsMuL00s2EQ_PXQk0",
-            authDomain: "rainbow-33d6a.firebaseapp.com",
-            projectId: "rainbow-33d6a",
-            storageBucket: "rainbow-33d6a.firebasestorage.app",
-            messagingSenderId: "218179570300",
-            appId: "1:218179570300:web:702ea061bd77b3507757f9"
-        };
-        
-        // Inicializar Firebase
-        firebase.initializeApp(firebaseConfig);
-        window.firebaseDb = firebase.firestore();
-        
-        console.log('✅ Firebase v9 cargado correctamente');
-        console.log('🔥 Proyecto:', firebaseConfig.projectId);
-    </script>
-
-    <!-- TUS SCRIPTS (sin duplicados) -->
+    
+    <!-- JS al final (SIN Firebase por ahora) -->
     <script src="js/config.js"></script>
     <script src="js/models/Product.js"></script>
     <script src="js/models/Sale.js"></script>
-    <script src="js/services/FirebaseService.js"></script>
-    <script src="js/services/FirebaseProductService.js"></script>
-    <script src="js/services/FirebaseSalesService.js"></script>
+    <script src="js/services/StorageService.js"></script>
+    <script src="js/services/ProductService.js"></script>
+    <script src="js/services/SalesService.js"></script>
     <script src="js/controllers/AppController.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 </html>
